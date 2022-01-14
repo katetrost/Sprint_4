@@ -42,4 +42,5 @@ public class AccountTest {
         boolean actual = account.checkNameToEmboss();
         assertEquals(expected, actual); // сравнили ожидаемый и фактический результат
     }
+
 }
