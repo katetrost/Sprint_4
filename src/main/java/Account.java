@@ -4,6 +4,8 @@ public class Account {
 
     private final String name;
 
+    private final Pattern pattern = Pattern.compile("(?=(^\\S+\\s\\S+$))(.{3,19})");
+
     public Account(String name) {
         this.name = name;
     }
@@ -14,10 +16,7 @@ public class Account {
              Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
          */
 
-        return name!=null &&
-                name.length() >= 3 &&
-                name.length() <= 19 &&
-                Pattern.matches("\\S+\\s\\S+",name); // проверка на наличие одного пробела и пробелов в начале и в конце, что их нет.
-    }
+        return name!=null && pattern.matcher(name).matches();
 
+    }
 }
